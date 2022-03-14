@@ -1,4 +1,4 @@
-67272_PATS_v1_sqlite
+67272_PATS_v3_sqlite
 ==
 
 This is a basic Rails app that was built as a class demonstration in the spring of 2018 and revised in Spring 2022.  This first version of the project is designed help students become more familiar with the basics of the Rails 5.2.6 framework; future versions will add in additional features like searching (straight|phonetic|full-text), polymorphic associations, and interactive javascript interfaces.
