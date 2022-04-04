@@ -25,13 +25,18 @@ class PetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create pet" do
+    # First of all, we should make sure the post worked by checking if adding a new pet changed the count of pets in the table,
+    #  and definitely by adding a valid pet object
     assert_difference('Pet.count') do
       post pets_path, params: { pet: { name: "Honey", animal_id: @animal.id, owner_id: @owner.id, female: true, date_of_birth: 3.years.ago.to_date, active: true } }
     end
-
+  #  Then we make sure that we get redirected to the right page specified in the create method 
+  # and that it shows the pet we just created: the last record in the table 
     assert_redirected_to pet_path(Pet.last)
 
+    # Invalid pet: a pet without a ame
     post pets_path, params: { pet: { name: nil, animal_id: @animal.id, owner_id: @owner.id, female: true, date_of_birth: 3.years.ago.to_date, active: true } }
+    # this should take us back to the new template.
     assert_template :new
   end
 

@@ -2,7 +2,7 @@ require './test/contexts'
 include Contexts
 
 Given /^an initial setup$/ do
-  # context used for phase 3 only
+  # context 
   create_animals
   create_owners
   create_pets

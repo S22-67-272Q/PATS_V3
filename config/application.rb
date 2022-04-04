@@ -2,6 +2,7 @@ require_relative 'boot'
 
 require 'rails/all'
 
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -16,6 +17,6 @@ module PATSV2
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths += Dir["#{config.root}/lib/**/"]  # include all subdirectories
 
-    # Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+    Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
   end
 end

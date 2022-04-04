@@ -8,7 +8,8 @@ class OwnersController < ApplicationController
 
   def index
     # finding all the active owners and paginating that list (will_paginate)
-    @active_owners = Owner.active.alphabetical.paginate(page: params[:page]).per_page(15)
+    @active_owners = Owner.active.alphabetical.paginate(page: params[:page]).per_page(5)
+    # render template:'index', layout: 'application'
   end
 
   def show
@@ -34,7 +35,7 @@ class OwnersController < ApplicationController
     else
       @owner.user_id = @user.id
       if @owner.save
-        flash[:notice] = "Successfully created #{@owner.proper_name}."
+        flash[:notice] = "Successfully created #{@owner.proper_name}"
         redirect_to owner_path(@owner) 
       else
         render action: 'new'

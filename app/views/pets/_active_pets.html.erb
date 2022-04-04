@@ -8,7 +8,6 @@
     <th class="align_center">Options</th>
   </thead>
   <% for pet in @active_pets %>
-    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>
       <td><%= link_to pet.name, pet_path(pet) %></td>
       <td><%= pet.animal.name %></td>
       <td><%= link_to pet.owner.name, owner_path(pet.owner) %></td>

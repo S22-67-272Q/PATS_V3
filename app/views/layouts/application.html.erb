@@ -27,8 +27,10 @@
           <!-- Flash messages appear here -->
           <%= render :partial => "partials/flash" %>
 
-          <!-- MAIN CONTENT OF TEMPLATE GOES HERE -->
+          <!-- CALL THE TEMPLATE ASSOCIATED WITH THE ACTION THE CONTROLLERS ASKED TO RENDER
+          THE MAIN CONTENT OF TEMPLATE GOES HERE (WHERE THE YIELD IS MENTIONED)-->
           <%= yield %>
+          
 
         </div>
       </div>

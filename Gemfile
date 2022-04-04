@@ -37,7 +37,7 @@ gem 'chronic', '0.10.2'
 gem 'materialize-sass', '0.100.2'
 gem 'vuejs-rails', '2.5.13'
 gem 'best_in_place', '~> 3.0.1'
-gem 'will_paginate', '3.1.6'
+gem 'will_paginate', '3.1.7'
 
 
 
@@ -63,6 +63,11 @@ group :development, :test do
   gem 'minitest', '5.10.3'
   gem 'minitest-rails', '3.0.0'
   gem 'minitest-reporters', '1.1.19'
+  gem 'rails-controller-testing', '1.0.5'
+  gem 'cucumber', '5.3.0'
+  gem 'cucumber-rails', '2.2.0', require: false
+  gem 'database_cleaner', '2.0.1'
+  gem 'launchy', '2.5.0'
 end
 
 group :development do
