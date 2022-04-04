@@ -19,6 +19,11 @@ Rails.application.routes.draw do
 
   # Resource routes (maps HTTP verbs to controller actions automatically):
   resources :owners
+
+  # get 'owners', to: 'owners#index', as: :owners
+
+
+
   resources :animals
   resources :pets
   resources :visits

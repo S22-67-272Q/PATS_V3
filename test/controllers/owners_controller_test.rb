@@ -18,7 +18,8 @@ class OwnersControllerTest < ActionDispatch::IntegrationTest
     #   2- We have a controller and its index action defined
     #   3- the template associated with the action is also created
       assert_not_nil assigns(:active_owners) # this tests that I have an instance variable called active_owners created in the index method
-  end
+      assert_template :index
+    end
 
 
   test "should get new" do
