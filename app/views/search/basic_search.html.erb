@@ -1,0 +1,38 @@
+<h5>Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'hit') %></h5>
+<p class="supertiny">&nbsp;</p>
+
+<% unless @animals.empty? %>
+  <p><em><strong>Animals matching term '<%= @query %>'</strong></em></p>
+  <ul>
+    <% for animal in @animals do %>
+      <li><%= link_to animal.name, animal_path(animal) %></li>
+    <% end %>
+  </ul>
+  <p class="smtext">&nbsp;</p>
+<% end %>
+
+<% if logged_in? && current_user.role?(:vet) %>
+
+    <% unless @pets.empty? %>
+    <p><em><strong>Pets matching term '<%= @query %>'</strong></em></p>
+    <ul>
+        <% for pet in @pets do %>
+        <li><%= link_to pet.name, pet_path(pet) %></li>
+        <% end %>
+    </ul>
+    <p class="smtext">&nbsp;</p>
+    <% end %>
+
+  <% unless @owners.empty? %>
+    <p><em><strong>Owners matching term '<%= @query %>'</strong></em></p>
+    <ul>
+      <% for owner in @owners do %>
+        <li><%= link_to owner.name, owner_path(owner) %></li>
+      <% end %>
+    </ul>
+    <p class="supertiny">&nbsp;</p>
+  <% end %>
+<% end %>
+
+
+

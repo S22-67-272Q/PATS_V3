@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'search/basic_search'
   # Semi-static page routes
   get 'home', to: 'home#index', as: :home
   get 'home/about', to: 'home#about', as: :about
   get 'home/contact', to: 'home#contact', as: :contact
   get 'home/privacy', to: 'home#privacy', as: :privacy
-  get 'home/search', to: 'home#search', as: :search
 
   # Authentication routes
 
@@ -56,10 +56,8 @@ Rails.application.routes.draw do
   post 'medicine_costs', to: 'medicine_costs#create'
   post 'procedure_costs', to: 'procedure_costs#create'
 
-  # Routes for searching
-  # get 'medicines/search', to: 'medicines#search', as: :medicine_search
-  # get 'owners/search', to: 'owners#search', as: :owner_search
-  # get 'pets/search', to: 'pets#search', as: :pet_search
+  # Search routes
+  get 'search/', to: 'search#basic_search', as: :search
 
   # You can have the root of your site routed with 'root'
   root 'home#index'

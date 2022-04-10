@@ -11,6 +11,8 @@ class Animal < ApplicationRecord
   scope :alphabetical, -> { order('name') }
   # scope :active,       -> { where(active: true) }
   # scope :inactive,     -> { where(active: false) }
+  scope :search, ->(term) { where('name LIKE ?', "#{term}%") }
+
    
   # Validations
   validates_presence_of :name

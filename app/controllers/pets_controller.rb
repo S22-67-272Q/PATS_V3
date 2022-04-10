@@ -2,7 +2,9 @@ class PetsController < ApplicationController
 
   # A callback to set up an @pet object to work with 
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
-  before_action :check_login
+  before_action :check_login, except: [:index, :show]
+
+
   authorize_resource
 
   def index
