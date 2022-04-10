@@ -3,6 +3,7 @@ class SearchController < ApplicationController
     redirect_back(fallback_location: home_path) if params[:query].blank?
 
     # this is the query
+    # params[:query] is passing the variable :search from my search bar.
     @query = params[:query]
 
     # everyone can search for an animal name, including guests
