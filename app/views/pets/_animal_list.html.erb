@@ -1,0 +1,19 @@
+<% unless @animals.empty? %>
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Find by Animal</span>
+
+    <table>
+      <tbody>
+      <tr>
+          <td><%= link_to "All", pets_path %></td>
+      </tr>
+      <% @animals.each do |animal| %>
+        <tr>
+          <td><%= link_to animal.name, pets_path(animal: animal) %></td>
+        </tr>
+      <% end %>
+    </table>
+    </div>
+  </div>
+<% end %>

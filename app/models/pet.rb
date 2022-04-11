@@ -35,7 +35,7 @@ class Pet < ApplicationRecord
   # get all the pets for a particular owner
   scope :for_owner, ->(owner_id) { where("owner_id = ?", owner_id) }
   # get all the pets who are a particular animal type
-  scope :by_animal, ->(animal_id) { where("animal_id = ?", animal_id) }
+  scope :for_animal, ->(animal) { where("animal_id = ?", animal.id) }
   # get all the pets born before a certain date
   scope :born_before, ->(dob) { where('date_of_birth < ?', dob) }
   # find all pets that have a name like some term or are and animal like some term

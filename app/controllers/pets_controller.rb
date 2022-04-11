@@ -8,15 +8,22 @@ class PetsController < ApplicationController
   authorize_resource
 
   def index
-    # get data on all pets and paginate the output to 10 per page
-    if current_user.role?(:owner)
-      @active_pets = current_user.owner.pets.active.alphabetical.paginate(page: params[:page]).per_page(10)
-      @inactive_pets = current_user.owner.pets.inactive.alphabetical.paginate(page: params[:page]).per_page(10)
+    @animals = Animal.active.alphabetical.to_a
+    if params[:animal]
+      animal = Animal.find(params[:animal])
+      # get data on all pets and paginate the output to 10 per page
+      if current_user.role?(:owner)
+        @active_pets = current_user.owner.pets.active.alphabetical.for_animal(animal).paginate(page: params[:page]).per_page(10)
+        @inactive_pets = current_user.owner.pets.inactive.alphabetical.for_animal(animal).paginate(page: params[:page]).per_page(10)
+      
+      else
+        @active_pets = Pet.active.alphabetical.for_animal(animal).paginate(page: params[:page]).per_page(10)
+        @inactive_pets = Pet.inactive.alphabetical.for_animal(animal).paginate(page: params[:page]).per_page(10)
+      end
     else
       @active_pets = Pet.active.alphabetical.paginate(page: params[:page]).per_page(10)
       @inactive_pets = Pet.inactive.alphabetical.paginate(page: params[:page]).per_page(10)
     end
-
   end
 
   def show
